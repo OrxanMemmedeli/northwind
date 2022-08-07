@@ -1,0 +1,29 @@
+<!-- KHAN
+
+Welcome to {{title}}
+<br>
+User is {{user}}
+
+{{product.productId}}
+
+<ul>
+  <li *ngFor="let product of products">{{product.productName}}</li>
+</ul> -->
+
+<div class="container">
+  <app-navi></app-navi>
+
+  <div class="row">
+    <div class="col-3">
+      <app-user></app-user>
+    </div>
+    <div class="col-9">
+      <app-todo></app-todo>
+    </div>
+  </div>
+
+
+  
+  <router-outlet></router-outlet>
+</div>
+
