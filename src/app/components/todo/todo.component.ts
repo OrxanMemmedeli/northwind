@@ -23,4 +23,4 @@ export class TodoComponent implements OnInit {
       this.dataLoaded = true
     });
   }
-}
+ }
