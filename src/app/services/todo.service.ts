@@ -7,11 +7,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TodoService {
-  apiUrl = 'https://jsonplaceholder.typicode.com/todos';
+  apiUrl = 'https://jsonplaceholder.typicode.com';
 
   constructor(private httpClient: HttpClient) { }
 
   getTodos():Observable<Todo[]> {
-    return this.httpClient.get<Todo[]>(this.apiUrl);
+    let newPath = this.apiUrl+"/todos";
+    return this.httpClient.get<Todo[]>(newPath);
+  }
+
+  getTodosByUser(id: number):Observable<Todo[]> {
+    let newPath = this.apiUrl+"/todos?userId=" + id;
+    return this.httpClient.get<Todo[]>(newPath);
   }
 }
