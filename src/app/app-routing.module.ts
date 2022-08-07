@@ -5,7 +5,8 @@ import { CategoryComponent } from './components/category/category.component';
 const routes: Routes = [
   {path:"",pathMatch:"full", component:TodoComponent},
   {path:"todos", component:TodoComponent},
-  {path:"categories", component:CategoryComponent}
+  {path:"categories", component:CategoryComponent},
+  {path:"todos/:id", component:TodoComponent},
 ];
 
 @NgModule({
