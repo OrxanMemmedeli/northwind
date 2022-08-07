@@ -9,6 +9,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserComponent implements OnInit {
   users: User[] = [];
+  currentUser: User;
+
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
@@ -19,5 +21,17 @@ export class UserComponent implements OnInit {
     this.userService.getUsers().subscribe((response) => {
       this.users = response;
     });
+  }
+
+  setCurrentUser(user: User) {
+    this.currentUser = user;
+  }
+
+  getCurrentUserClass(user: User) {
+    if (this.currentUser == user) {
+      return 'list-group-item active';
+    } else {
+      return 'list-group-item';
+    }
   }
 }
