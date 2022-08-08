@@ -1,3 +1,10 @@
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Search Title</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Search Title">
+</div>
+<div *ngIf="filterText.length>2" class="alert alert-success">
+'{{filterText | uppercase}}' dəyırini axtardınız
+</div>
 <div *ngIf="dataLoaded == false" class="spinner-border text-danger" role="status">
     <span class="visually-hidden">Loading...</span>
 </div>
@@ -14,7 +21,7 @@
         <tr *ngFor="let todo of todos">
             <td>{{todo.id}}</td>
             <td>{{todo.userId}}</td>
-            <td>{{todo.title}}</td>
+            <td>{{todo.title | uppercase}}</td>
             <td>{{todo.completed}}</td>
         </tr>
     </tbody>
