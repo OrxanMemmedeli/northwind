@@ -9,7 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserComponent implements OnInit {
   users: User[] = [];
-  currentUser: User;
+  currentUser: User | null;
 
   constructor(private userService: UserService) {}
 
@@ -29,6 +29,18 @@ export class UserComponent implements OnInit {
 
   getCurrentUserClass(user: User) {
     if (this.currentUser == user) {
+      return 'list-group-item active';
+    } else {
+      return 'list-group-item';
+    }
+  }
+
+  setAllUser() {
+    this.currentUser = null;
+  }
+
+  getAllUserClass() {
+    if (!this.currentUser) {
       return 'list-group-item active';
     } else {
       return 'list-group-item';

@@ -1,5 +1,5 @@
 <ul class="list-group">
-  <li  routerLink="/todos">All</li>
+  <li (click)="setAllUser()"  routerLink="/todos"  [class]="getAllUserClass()">All</li>
   <li (click)="setCurrentUser(user)" routerLink="/todos/{{user.id}}" *ngFor="let user of users" [class]="getCurrentUserClass(user)">
     {{user.name}}-({{user.username}})
   </li>
