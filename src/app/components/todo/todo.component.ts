@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 import { Todo } from 'src/app/Models/todo';
 import { TodoService } from 'src/app/services/todo.service';
 @Component({
@@ -15,7 +15,8 @@ export class TodoComponent implements OnInit {
 
   constructor(
     private todoService: TodoService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private toastrService: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -38,5 +39,10 @@ export class TodoComponent implements OnInit {
     this.todoService.getTodosByUser(id).subscribe((response) => {
       (this.todos = response), (this.dataLoaded = true);
     });
+  }
+
+  addToCart(todo: Todo) {
+    this.toastrService.success('Səbətə əlvə edildi.', todo.title);
+    console.log(todo);
   }
 }
