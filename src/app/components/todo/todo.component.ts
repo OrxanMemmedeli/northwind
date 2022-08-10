@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { CartItems } from 'src/app/Models/cartItems';
 import { Todo } from 'src/app/Models/todo';
+import { CartService } from 'src/app/services/cart.service';
 import { TodoService } from 'src/app/services/todo.service';
 @Component({
   selector: 'app-todo',
@@ -16,7 +18,8 @@ export class TodoComponent implements OnInit {
   constructor(
     private todoService: TodoService,
     private activatedRoute: ActivatedRoute,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -42,7 +45,9 @@ export class TodoComponent implements OnInit {
   }
 
   addToCart(todo: Todo) {
+    this.cartService.addToCart(todo);
     this.toastrService.success('Səbətə əlvə edildi.', todo.title);
-    console.log(todo);
   }
+
+
 }

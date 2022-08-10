@@ -16,6 +16,7 @@ import { CommentComponent } from './components/comment/comment.component';
 import { FilterTitlePipe } from './pipes/filter-title.pipe';
 
 import { ToastrModule } from 'ngx-toastr';
+import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ToastrModule } from 'ngx-toastr';
     UserComponent,
     GetDomainNamePipe,
     CommentComponent,
-    FilterTitlePipe
+    FilterTitlePipe,
+    CartSummaryComponent
   ],
   imports: [
     BrowserModule,
