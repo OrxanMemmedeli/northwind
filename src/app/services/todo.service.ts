@@ -20,4 +20,8 @@ export class TodoService {
     let newPath = this.apiUrl+"/todos?userId=" + id;
     return this.httpClient.get<Todo[]>(newPath);
   }
+
+  add(todo: Todo){
+    return this.httpClient.post(this.apiUrl+"/todos", todo);
+  }
 }
