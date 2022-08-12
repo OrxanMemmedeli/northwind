@@ -1,0 +1,22 @@
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Quote
+            </th>
+            <th>
+                Author
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let quote of quotes">
+            <td>{{quote.id}}</td>
+            <td>{{quote.quote}}</td>
+            <td>{{quote.author}}</td>
+        </tr>
+    </tbody>
+</table>
