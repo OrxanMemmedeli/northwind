@@ -7,6 +7,7 @@ import { TodoAddComponent } from './components/todo-add/todo-add.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthQuotesComponent } from './components/auth-quotes/auth-quotes.component';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   {path:"",pathMatch:"full", component:TodoComponent},
@@ -17,7 +18,7 @@ const routes: Routes = [
   {path:"comments", component:CommentComponent},
   {path:"login", component:LoginComponent},
   {path:"register", component:RegisterComponent},
-  {path:"auth/quotes", component:AuthQuotesComponent},
+  {path:"auth/quotes", component:AuthQuotesComponent, canActivate:[LoginGuard]},
 ];
 
 @NgModule({
